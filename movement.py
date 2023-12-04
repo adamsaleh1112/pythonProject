@@ -1,15 +1,11 @@
 import requests
 from datetime import datetime
 
-from login import returnName
 
 def forward():
     url = 'http://192.168.1.21:5000/forward'
     data = {'command': 'forward'}
     response = requests.post(url, data=data)
-
-    global name
-    name = returnName()
 
     with open('log.txt', 'a') as f:
         now = datetime.now()
