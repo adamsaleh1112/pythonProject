@@ -6,7 +6,7 @@ from tkinter import messagebox
 import os
 import sqlite3
 import random
-from login import *
+from login import loginscreen
 from createaccount import *
 from gui import *
 import os

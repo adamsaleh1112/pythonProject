@@ -1,16 +1,16 @@
 import requests
 from datetime import datetime
+from login import getUser
 
 
 def forward():
     url = 'http://192.168.1.21:5000/forward'
     data = {'command': 'forward'}
     response = requests.post(url, data=data)
-
     with open('log.txt', 'a') as f:
         now = datetime.now()
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-        f.write(name + ': ' + dt_string + ' Move forward \n')
+        f.write(dt_string + ' Move forward \n')
 
 def backward():
     url = 'http://192.168.1.21:5000/backward'
@@ -46,7 +46,7 @@ def stop():
     with open('log.txt', 'a') as f:
         now = datetime.now()
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-        f.write(dt_string + ' Move stop \n')
+        f.write(dt_string + ' Stop \n')
 
 def go():
     url = 'http://192.168.1.21:5000/go'
@@ -55,4 +55,4 @@ def go():
     with open('log.txt', 'a') as f:
         now = datetime.now()
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-        f.write(dt_string + ' Move go \n')
+        f.write(dt_string + ' Go \n')

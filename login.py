@@ -17,13 +17,14 @@ cursor = db.cursor()
 def loginscreen():
     # builds internal screen
     def login():
+        global user
+        global passw
         user = username.get()
         passw = pasword.get()
 
         cursor.execute(
             f"SELECT fn FROM database WHERE username = '{user}' AND password = '{passw}'"
         )
-        global name
         name = cursor.fetchone()
 
         if name:
@@ -65,5 +66,5 @@ def loginscreen():
     create_button.grid(row=5, column=1)
     root.mainloop()
 
-def returnName():
-    return name
+def getUser():
+    return(user)
