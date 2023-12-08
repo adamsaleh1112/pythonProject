@@ -1,11 +1,11 @@
-# import necessary libraries
-import tkinter as tk
-from tkinter import ttk
-import sqlite3
-import random
-from tkinter import *
-from tkinter import messagebox
-import os
+
+import tkinter as tk # Importing UI library for python, tkinter, allowing to make buttons and text labels
+from tkinter import ttk # Importing specific part of tkinter
+import sqlite3 # Importing sqlite3 which allows SQL queries to be called in python
+import random # Importing random library, which allows for random values to be generated
+from tkinter import * # Importing everything in tkinter
+from tkinter import messagebox # Importing messagebox from tkinter, allowing for message box pop-ups
+import os # Importing file managing library, which allows for editing and reading other files
 
 
 db = sqlite3.connect('database.db')

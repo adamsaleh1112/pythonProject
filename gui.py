@@ -36,23 +36,48 @@ def backend(name):
   w4 = tk.Label(frame4, text = str(updatelog()), font = "90", fg="black")
   w4.grid(row=0, column=0)
 
-  fwd = Button(frame2, text ='↑ ',height=3, width=8 , font = "90",fg="black", command = lambda: forward())
+  fwd = Button(frame2, text ='↑ ',height=3, width=8 , font = "90",fg="black", command = lambda: forward_and_update())
   fwd.grid(row=0, column=1, columnspan=2)
 
-  lft = Button(frame2, text ='←',height=3, width=5 , font = "45", fg="black", command = lambda: left())
+  lft = Button(frame2, text ='←',height=3, width=5 , font = "45", fg="black", command = lambda: left_and_update())
   lft.grid(row=1, column=0)
 
-  rgt = Button(frame2, text='→',height=3, width=5 , font="45", fg="black", command = lambda: right())
+  rgt = Button(frame2, text='→',height=3, width=5 , font="45", fg="black", command = lambda: right_and_update())
   rgt.grid(row=1, column=3)
 
-  bwd = Button(frame2, text ='↓',height=3, width=8 , font = "45", fg="black", command = lambda: backward())
+  bwd = Button(frame2, text ='↓',height=3, width=8 , font = "45", fg="black", command = lambda: backward_and_update())
   bwd.grid(row=2, column=1, columnspan=2)
 
-  ply = Button(frame2, text='▶',height=3, width=2 , font="45", fg="Green", command=lambda: go())
+  ply = Button(frame2, text='▶',height=3, width=2 , font="45", fg="Green", command=lambda: go_and_update())
   ply.grid(row=1, column=1)
 
-  stp = Button(frame2, text='⏸',height=3, width=2 , font="45", fg="Red", command=lambda: stop())
+  stp = Button(frame2, text='⏸',height=3, width=2 , font="45", fg="Red", command=lambda: stop_and_update())
   stp.grid(row=1, column=2)
+
+  def forward_and_update(): #Forward command
+    forward()
+    w4.config(text=str(updatelog()))
+
+  def left_and_update():
+    left()
+    w4.config(text=str(updatelog()))
+
+  def right_and_update():
+    right()
+    w4.config(text=str(updatelog()))
+
+  def backward_and_update():
+    backward()
+    w4.config(text=str(updatelog()))
+
+  def go_and_update():
+    go()
+    w4.config(text=str(updatelog()))
+
+  def stop_and_update():
+    stop()
+    w4.config(text=str(updatelog()))
+
 
 
   w3 = tk.Label(frame3, text ='Video', font = "90",fg="black")
@@ -64,6 +89,5 @@ def backend(name):
   w1.grid(row=0, column=0)
   w1_1 = tk.Label(frame1, text ='Space', font = "45", fg="black")
   w1_1.grid(row=1, column=0)
-
 
   inner.mainloop()

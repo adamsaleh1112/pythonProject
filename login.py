@@ -17,8 +17,6 @@ cursor = db.cursor()
 def loginscreen():
     # builds internal screen
     def login():
-        global user
-        global passw
         user = username.get()
         passw = pasword.get()
 
@@ -32,6 +30,8 @@ def loginscreen():
             name = name[2:len(name) - 3]
             root.destroy()
             backend(name)
+            with open('usernamelog.txt', 'w') as f:
+                f.write(user)
         else:
             messagebox.showinfo("Username or password does not exist", "Please try again")
 
@@ -65,6 +65,3 @@ def loginscreen():
     create_button = Button(root, text="Create new account", command=lambda: cw())
     create_button.grid(row=5, column=1)
     root.mainloop()
-
-def getUser():
-    return(user)
