@@ -16,24 +16,28 @@ cursor = db.cursor() # Setting up query-er
 
 def loginscreen():
     # builds internal screen
-    def login(): # Getting username and password
+    def login(): # Take in username and password from what the user entered in
         user = username.get()
         passw = pasword.get()
 
-        # Finding username and password in database
+        # Queriess the database to find the user with that username and password
         cursor.execute(
             f"SELECT fn FROM database WHERE username = '{user}' AND password = '{passw}'"
         )
         name = cursor.fetchone()
 
-        if name:
+        if name: # This is checking is the user with that username and password exists
             name = str(name)
             name = name[2:len(name) - 3]
             root.destroy()
+            # If the user does exist, this functtion is called on from the file "gui.py" and it makes the GUI or backend
             backend(name)
 
+            # Will save the username to a text file to be used in the GUI
             with open('usernamelog.txt', 'w') as f:
                 f.write(user)
+
+        # If the user does not exist, this message will be displayed in a pop-up
         else:
             messagebox.showinfo("Username or password does not exist", "Please try again")
 
