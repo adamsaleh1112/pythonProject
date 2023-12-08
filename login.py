@@ -30,6 +30,7 @@ def loginscreen():
             name = name[2:len(name) - 3]
             root.destroy()
             backend(name)
+
             with open('usernamelog.txt', 'w') as f:
                 f.write(user)
         else:

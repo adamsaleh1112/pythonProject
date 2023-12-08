@@ -8,13 +8,13 @@ from tkinter import messagebox # Importing messagebox from tkinter, allowing for
 import os # Importing file managing library, which allows for editing and reading other files
 
 
-db = sqlite3.connect('database.db')
-cursor = db.cursor()
+db = sqlite3.connect('database.db') # Connecting queries to file 'database.db'
+cursor = db.cursor() # Setting up database query-er
 
-try:
+try: # Testing to see if file exists
     if os.path.exists("database.db"):
-        pass
-except:
+        pass # If it does, pass
+except: # If it doesn't create a file called database.db
     os.mknod("database.db")
 
 try:
